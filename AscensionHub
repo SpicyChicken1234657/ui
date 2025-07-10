@@ -200,12 +200,8 @@ function AscensionHub.Tab:CreateButton(text, callback)
     button.TextColor3 = self.Theme.TextColor
     button.BackgroundColor3 = self.Theme.ButtonColor
     button.Size = UDim2.new(0, 200, 0, 40)
-    buttonсию
-
     button.Position = UDim2.new(0, 10, 0, #self.Elements * 50)
-    button.Font = self.Theme.Font
-    button.TextSize = 14
-    button.Parent = self.Content
+    button.F 
 
     button.MouseButton1Click:Connect(function()
         if AscensionHub.Settings.AnimationsEnabled then
@@ -233,11 +229,11 @@ end
 
 -- Slider Creation
 function AscensionHub.Tab:CreateSlider(text, min, max, default, callback)
-    local sliderDir = Instance.new("Frame")
-    sliderDir.Size = UDim2.new(0, 200, 0, 40)
-    sliderDir.Position = UDim2.new(0, 10, 0, #self.Elements * 50)
-    sliderDir.BackgroundTransparency = 1
-    sliderDir.Parent = self.Content
+    local sliderFrame = Instance.new("Frame")
+    sliderFrame.Size = UDim2.new(0, 200, 0, 40)
+    sliderFrame.Position = UDim2.new(0, 10, 0, #self.Elements * 50)
+    sliderFrame.BackgroundTransparency = 1
+    sliderFrame.Parent = self.Content
 
     local label = Instance.new("TextLabel")
     label.Text = text .. ": " .. default
@@ -246,13 +242,13 @@ function AscensionHub.Tab:CreateSlider(text, min, max, default, callback)
     label.TextSize = 14
     label.Size = UDim2.new(1, 0, 0, 20)
     label.BackgroundTransparency = 1
-    label.Parent = sliderDir
+    label.Parent = sliderFrame
 
     local track = Instance.new("Frame")
     track.Size = UDim2.new(1, 0, 0, 10)
     track.Position = UDim2.new(0, 0, 0, 25)
     track.BackgroundColor3 = self.Theme.ButtonColor
-    track.Parent = sliderDir
+    track.Parent = sliderFrame
 
     local fill = Instance.new("Frame")
     fill.Size = UDim2.new((default - min) / (max - min), 0, 1, 0)
@@ -283,7 +279,7 @@ function AscensionHub.Tab:CreateSlider(text, min, max, default, callback)
         end
     end)
 
-    table.insert(self.Elements, sliderDir)
+    table.insert(self.Elements, sliderFrame)
     return {SetValue = function(val) 
         local relative = (val - min) / (max - min)
         fill.Size = UDim2.new(relative, 0, 1, 0)
