@@ -37,7 +37,10 @@ AscensionHub.Settings = {
 -- Utility Functions
 local function createGradient(frame, color1, color2)
     local gradient = Instance.new("UIGradient")
-    gradient.Color = ColorSequence.new{color1, color2}
+    gradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, color1),
+        ColorSequenceKeypoint.new(1, color2)
+    }
     gradient.Parent = frame
 end
 
