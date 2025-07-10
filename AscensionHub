@@ -37,7 +37,7 @@ local function createRippleEffect(button)
     local tween = TweenService:Create(ripple, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
         Size = UDim2.new(2, 0, 2, 0),
         BackgroundTransparency = 1
-    )
+    })
     tween:Play()
     tween.Completed:Connect(function()
         ripple:Destroy()
@@ -71,7 +71,7 @@ function AscensionHub:CreateWindow(title, customTheme)
     shadow.ImageColor3 = window.Theme.ShadowColor
     shadow.ImageTransparency = 0.5
     shadow.Size = UDim2.new(1, 50, 1, 50)
-   shadow.Position = UDim2.new(0, -25, 0, -25)
+    shadow.Position = UDim2.new(0, -25, 0, -25)
     shadow.BackgroundTransparency = 1
     shadow.Parent = mainFrame
 
@@ -191,7 +191,7 @@ function AscensionHub.Window:CreateTab(name)
 end
 
 AscensionHub.Tab = {}
-AscensionHub.Tab.__she.__index = AscensionHub.Tab
+AscensionHub.Tab.__index = AscensionHub.Tab
 
 -- Button Creation
 function AscensionHub.Tab:CreateButton(text, callback)
